@@ -85,7 +85,7 @@ def main():
     #model = birealnet18()
     #model = ResNet18_XNOR()
     #model = custom_react()
-    print(args.binary_w)
+    print("Binarized: ",args.binary_w)
     model = proposed(binarized = args.binary_w)
     #logging.info(model)
     model = nn.DataParallel(model).cuda()
@@ -204,6 +204,7 @@ def main():
             #training_time = (time.time() - start_t) / 36000
     if epoch == args.epochs:
          valid_obj, valid_top1_acc, valid_top5_acc = validate(epoch, val_loader, model, criterion, args)
+         print("Best Acc: ",best_top1_acc)
     training_time = (time.time() - start_t) / 3600 # unit: one second
 
     #}}}

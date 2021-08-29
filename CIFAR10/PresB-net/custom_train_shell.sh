@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SAVEDIR='./propose_ptr_34/version_1'
+SAVEDIR='./propose_ptr_18/version_1'
 TRAINNAME="custom_train_2stage.py"
 DATAPATH="../cifar10"
 Epoch=400
