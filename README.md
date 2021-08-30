@@ -17,21 +17,54 @@
 
 ## How to run
 
-1. Unzip ptr in target forder
+#### Use Pretrain weight
 
-   1. Download PTR in link()
+- Download weight(ptr) files
 
-   2. Unzip ptr in Target folder's propose_ptr
+  - CIFAR-100 : https://drive.google.com/file/d/1nt-ZpkyJN-LQsHemQduLkenDErOPDcrF/view?usp=sharing
+  - CIFAR-10  : https://drive.google.com/file/d/1GgQ7QjovoU4FWMr_c9NesgVdOakyGv9a/view?usp=sharing
 
-      ​	ex)  CIFAR100/PresB-net-18/propose_ptr.
+- Unzip PTR & move file to directory
 
-   3. run code
+  - ex) CIFAR-10, PresB-Net-18
 
-      ```
-      ~ sh custom_train_shell.sh
-      ```
+    ```shell
+    tar -zxvf cifar_10.tar.gz
+    cp -r ptr_file/propose_ptr_18 ./
+    ```
 
-      
+- Run
 
-   
+  ```shell
+  sh custom_train_shell.sh
+  ```
 
+  
+
+#### Training
+
+- Make directory
+
+  ```shell
+  mkdir ${FILENAME}
+  mkdir ${FILENAME}/version_1
+  ```
+
+  
+
+- Edit shell
+
+  - custon_train_shell.sh
+
+  ```shell
+  SAVEDIR="./${FILENAME}/version_1"
+  DATAPATH="${DATAPATH}"
+  ```
+
+- Run
+
+  ```shell
+  sh custom_train_shell.sh
+  ```
+
+  
