@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 
 from proposed_models import  Aresblock1_6 
-
+#from torchsummary import summary
 class pre_conv(nn.Module):
 #{{{
     def __init__(self, in_channel, out_channel, stride):
@@ -17,7 +17,6 @@ class pre_conv(nn.Module):
     def forward(self, x):
 
         x = self.conv(x)
-        x = F.leaky_relu(x)        
         x = self.bn(x)
 
         return x
@@ -30,7 +29,7 @@ PresB_34_channel = (64,64,64,64,128,128,128,128,256,256,256,256,256,256,512,512,
 
 
 class proposed(nn.Module):    
-    def __init__(self, stage_channel = PresB_10_channel, binarized = False ,num_class = 100):
+    def __init__(self, stage_channel = PresB_18_channel, binarized = False ,num_class = 100):
         
         stage_channel = [128] + [2*i for i in stage_channel[1:]]
 
@@ -67,4 +66,5 @@ class proposed(nn.Module):
 
         return x
 
+#summary(proposed().cuda(),(3,32,32))
 

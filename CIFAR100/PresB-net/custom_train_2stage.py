@@ -126,7 +126,7 @@ def main():
                 if not key in model.state_dict().keys():
                     print('unload key: {}'.format(key))
 
-            model.load_state_dict(pretrain_student, strict=False)
+            model.load_state_dict(pretrain_student, strict=True)
 
     checkpoint_tar = os.path.join(args.save, 'checkpoint.pth.tar')
     if os.path.exists(checkpoint_tar):
@@ -134,7 +134,7 @@ def main():
         checkpoint = torch.load(checkpoint_tar)
         start_epoch = checkpoint['epoch']
         best_top1_acc = checkpoint['best_top1_acc']
-        model.load_state_dict(checkpoint['state_dict'], strict=False)
+        model.load_state_dict(checkpoint['state_dict'], strict=True)
         logging.info("loaded checkpoint {} epoch = {}" .format(checkpoint_tar, checkpoint['epoch']))
 
     # adjust the learning rate according to the checkpoint
