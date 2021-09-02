@@ -44,7 +44,7 @@
 
 - Change model sturcture
 
-  Change stage_channel parameter in Class proposed in models.py
+  Change **stage_channel** parameter in Class **proposed** in **models.py**
 
   ```python
   PresB_10_channel = (64,64,128,256,512)
@@ -53,8 +53,17 @@
   
   class proposed(nn.Module):    
       def __init__(self, stage_channel = PresB_18_channel ,binarized = False ,num_class = 10):
-          
-          stage_channel = [128] + [2*i for i in stage_channel[1:]]
+  ```
+
+- Change shell
+
+  Change **SAVEDIR** parameter in **custom_train_shell.sh**
+
+  ```shell
+  SAVEDIR='./propose_ptr_18/version_1'
+  TRAINNAME="custom_train_2stage.py"
+  DATAPATH="../cifar100"
+  Epoch=400
   ```
 
   
